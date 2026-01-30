@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>辞忧电竞</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF9F1C',
+            secondary: '#FFB95F',
+            dark: '#2D2D2D',
+            light: '#FFF9E8',
+            yellow: '#FFD700',
+          },
+          fontFamily: {
+            sans: ['PingFang SC', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .scroll-announcement {
+        animation: scroll 15s linear infinite;
+      }
+      @keyframes scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      .game-active {
+        background-color: #FF9F1C;
+        color: white;
+      }
+      .game-inactive {
+        background-color: white;
+        color: #2D2D2D;
+      }
+      .nav-active {
+        background-color: black;
+        color: #FF9F1C;
+        border-radius: 9999px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-light min-h-screen flex flex-col">
+  <!-- 抢单中心页面 -->
+  <div id="page-1" class="flex-1 flex flex-col">
+    <!-- 顶部导航 -->
+    <div class="bg-primary text-dark py-4 px-4 flex items-center justify-between">
+      <a href="#" class="text-dark text-lg font-bold">
+        <i class="fa fa-arrow-left mr-2"></i>
+      </a>
+      <h1 class="text-xl font-bold text-dark absolute left-1/2 transform -translate-x-1/2">抢单中心</h1>
+      <div class="w-16"></div>
+    </div>
+
+    <!-- 滚动公告 -->
+    <div class="bg-primary text-dark py-2 overflow-hidden relative">
+      <div class="scroll-announcement whitespace-nowrap absolute left-0 top-0 h-full flex items-center">
+        <i class="fa fa-volume-up mr-2"></i> 俱乐部招募总管售后有意者联系qq1623531569
+      </div>
+    </div>
+
+    <!-- 游戏选择 -->
+    <div class="flex px-4 py-4 space-x-4 overflow-x-auto">
+      <div class="game-active rounded-full px-4 py-3 flex flex-col items-center min-w-[80px]" data-game="heping">
+        <!-- 和平精英图标 -->
+        <img src="/storage/emulated/999/Pictures/gifshow/image_download_1769730059163.jpg" alt="和平" class="w-12 h-12 rounded-full mb-1">
+        <span class="text-sm font-medium">和平</span>
+      </div>
+      <div class="game-inactive rounded-full px-4 py-3 flex flex-col items-center min-w-[80px]" data-game="pubg">
+        <!-- PUBG图标 -->
+        <img src="/storage/emulated/999/Pictures/gifshow/image_download_1769732143079.jpg" alt="PUBG" class="w-12 h-12 rounded-full mb-1">
+        <span class="text-sm font-medium">PUBG</span>
+      </div>
+      <div class="game-inactive rounded-full px-4 py-3 flex flex-col items-center min-w-[80px]" data-game="sanzhou">
+        <!-- 三角洲图标 -->
+        <img src="/storage/emulated/999/Pictures/gifshow/IMG_20260130_081705.jpg" alt="三角洲" class="w-12 h-12 rounded-full mb-1">
+        <span class="text-sm font-medium">三角洲</span>
+      </div>
+      <div class="game-inactive rounded-full px-4 py-3 flex flex-col items-center min-w-[80px]" data-game="anqu">
+        <!-- 暗区突围图标 -->
+        <img src="/storage/emulated/999/Pictures/gifshow/IMG_20260130_081731.jpg" alt="暗区" class="w-12 h-12 rounded-full mb-1">
+        <span class="text-sm font-medium">暗区</span>
+      </div>
+    </div>
+
+    <!-- 分区标签 -->
+    <div class="flex px-4 py-2 space-x-2" id="gameTabs">
+      <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">微信</button>
+      <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">QQ区</button>
+      <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">护航</button>
+      <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">装备</button>
+    </div>
+
+    <!-- 订单列表 -->
+    <div class="flex-1 flex flex-col items-center justify-center px-4 py-8">
+      <p class="text-dark/60 text-lg">暂无订单</p>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="bg-primary py-3 px-6 flex justify-around items-center">
+      <a href="#page-1" class="flex flex-col items-center nav-active py-1 px-4">
+        <i class="fa fa-gamepad text-xl"></i>
+        <span class="text-xs mt-1">首页</span>
+      </a>
+      <a href="#page-2" class="flex flex-col items-center text-dark py-1 px-4">
+        <i class="fa fa-comments text-xl"></i>
+        <span class="text-xs mt-1">聊天</span>
+      </a>
+      <a href="#page-3" class="flex flex-col items-center text-dark py-1 px-4">
+        <i class="fa fa-user text-xl"></i>
+        <span class="text-xs mt-1">我的</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 聊天页面 -->
+  <div id="page-2" class="hidden flex-1 flex flex-col">
+    <div class="bg-white text-dark py-4 px-4 flex items-center justify-between border-b border-gray-100">
+      <a href="#" class="text-dark text-lg font-bold">
+        <i class="fa fa-arrow-left mr-2"></i>
+      </a>
+      <h1 class="text-xl font-bold text-dark absolute left-1/2 transform -translate-x-1/2">聊天</h1>
+      <div class="w-8"></div>
+    </div>
+
+    <div class="flex-1 flex items-center justify-center">
+      <p class="text-dark/60 text-lg">当前没有会话</p>
+    </div>
+
+    <div class="bg-primary py-3 px-6 flex justify-around items-center">
+      <a href="#page-1" class="flex flex-col items-center text-dark py-1 px-4">
+        <i class="fa fa-gamepad text-xl"></i>
+        <span class="text-xs mt-1">首页</span>
+      </a>
+      <a href="#page-2" class="flex flex-col items-center nav-active py-1 px-4">
+        <i class="fa fa-comments text-xl"></i>
+        <span class="text-xs mt-1">聊天</span>
+      </a>
+      <a href="#page-3" class="flex flex-col items-center text-dark py-1 px-4">
+        <i class="fa fa-user text-xl"></i>
+        <span class="text-xs mt-1">我的</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 个人中心页面 -->
+  <div id="page-3" class="hidden flex-1 flex flex-col">
+    <div class="bg-white text-dark py-4 px-4 flex items-center justify-between border-b border-gray-100">
+      <a href="#" class="text-dark text-lg font-bold">
+        <i class="fa fa-arrow-left mr-2"></i>
+      </a>
+      <h1 class="text-xl font-bold text-dark absolute left-1/2 transform -translate-x-1/2">个人中心</h1>
+      <div class="w-8"></div>
+    </div>
+
+    <div class="bg-yellow-300 py-4 px-4 flex items-center space-x-4">
+      <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+        <i class="fa fa-user text-yellow-500 text-xl"></i>
+      </div>
+      <div
+        <p class="text-dark font-medium">点击登录</p>
+        <p class="text-dark/70 text-sm">登录体验更多功能</p>
+      </div>
+    </div>
+
+    <div class="bg-yellow-100 py-3 px-4 flex justify-between items-center">
+         <div class="flex items-center">
+         <i class="fa fa-crown text-yellow-500 mr-2"></i>
+         <span class="text-dark font-medium">升级会员即享受会员权益</span>
+       </div>
+       <a href="#" class="text-dark font-medium">去升级 ></a>
+     </div>
+     <div class="bg-dark text-white py-4 px-4 flex justify-between items-center rounded-lg mx-4 my-3">
+       <div class="flex items-center">
+         <i class="fa fa-credit-card text-yellow-400 mr-2"></i>
+         <span>我的佣金</span>
+         <span class="text-yellow-400 ml-2 text-lg">¥0.00</span>
+       </div>
+       <button class="bg-yellow-400 text-dark px-4 py-1 rounded-full text-sm font-medium">提现</button>
+     </div>
+     <div class="flex px-4 space-x-3 py-4">
+       <div class="bg-purple-100 rounded-lg p-3 flex-1 text-center">
+         <p class="text-purple-600 font-medium">打手排行榜</p>
+         <p class="text-xs text-purple-500 mt-1">冲击打手最高榜</p>
+       </div>
+       <div class="bg-blue-100 rounded-lg p-3 flex-1 text-center">
+         <p class="text-blue-600 font-medium">管事排行榜</p>
+         <p class="text-xs text-blue-500 mt-1">管事招打手排行榜</p>
+         </div>
+       <div class="bg-red-100 rounded-lg p-3 flex-1 text-center">
+         <p class="text-red-600 font-medium">客服排行榜</p>
+         <p class="text-xs text-red-500 mt-1">客服发单排行榜</p>
+       </div>
+     </div>
+     <div class="bg-blue-50 p-3 mx-4 rounded-lg mb-4">
+       <p class="text-dark/80 text-sm mb-1">温馨提示:</p>
+       <p class="text-dark/70 text-xs">1、请关注公众号【辞忧电竞】。</p>
+       <p class="text-dark/70 text-xs">2、请加入QQ频道：pd58537805，可了解最近消息动态，反馈问题等</p>
+     </div>
+     <div class="space-y-1">
+       <div class="flex justify-between items-center py-3 px-4 border-b border-gray-100">
+         <span class="text-dark">微信授权</span>
+         <span class="text-dark/60 text-sm">请先微信授权登录 ></span>
+       </div>
+       <div class="flex justify-between items-center py-3 px-4 border-b border-gray-100">
+         <span class="text-dark">平台客服</span>
+         <i class="fa fa-chevron-right text-dark/40"></i>
+       </div>
+       <div class="flex justify-between items-center py-3 px-4 border-b border-gray-100">
+         <span class="text-dark">举报记录</span>
+         <i class="fa fa-chevron-right text-dark/40"></i>
+       </div>
+       <div class="flex justify-between items-center py-3 px-4 border-b border-gray-100">
+         <span class="text-dark">我要投诉</span>
+         <i class="fa fa-chevron-right text-dark/40"></i>
+       </div>
+       <div class="flex justify-between items-center py-3 px-4">
+         <span class="text-dark">今日单价</span>
+         <i class="fa fa-chevron-right text-dark/40"></i>
+       </div>
+     </div>
+     <div class="mt-auto text-center py-3 text-dark/50 text-xs">
+       copyright@2026 辞忧网格    [消辞-忘却]
+     </div>
+     <div class="bg-primary py-3 px-6 flex justify-around items-center">
+       <a href="#page-1" class="flex flex-col items-center text-dark py-1 px-4">
+         <i class="fa fa-gamepad text-xl"></i>
+         <span class="text-xs mt-1">首页</span>
+         </a>
+       <a href="#page-2" class="flex flex-col items-center text-dark py-1 px-4">
+         <i class="fa fa-comments text-xl"></i>
+         <span class="text-xs mt-1">聊天</span>
+       </a>
+       <a href="#page-3" class="flex flex-col items-center nav-active py-1 px-4">
+         <i class="fa fa-user text-xl"></i>
+         <span class="text-xs mt-1">我的</span>
+       </a>
+     </div>
+   </div>
+   <!-- 背景音乐音频标签 (隐藏) -->
+   <audio id="bgMusic" loop>
+     <source src="/storage/emulated/0/Download/netease/cloudmusic/Music/DJ铁柱 - 沉溺V2（DJ铁柱版）.mp3" type="audio/mpeg">
+   
+   <script>
+     // 页面切换逻辑
+     document.querySelectorAll('a[href^="#page-"]').forEach(link => {
+       link.addEventListener('click', (e) => {
+         e.preventDefault();
+         const targetId = link.getAttribute('href');
+         document.querySelectorAll('[id^="page-"]').forEach(page => {
+           page.classList.add('hidden');
+         });
+         document.querySelector(targetId).classList.remove('hidden');
+         
+         // 更新底部导航激活状态
+         document.querySelectorAll('.nav-active').forEach(nav => {
+           nav.classList.remove('nav-active');
+           nav.classList.add('text-dark');
+         });
+         link.classList.add('nav-active');
+         link.classList.remove('text-dark');
+         // 只有进入抢单中心时才播放背景音乐
+         if (targetId === '#page-1') {
+           bgMusic.play().catch(err => {
+             console.log('播放失败，等待用户交互:', err);
+             document.addEventListener('click', () => {
+               bgMusic.play().catch(err => {
+                 console.log('点击后播放仍失败:', err);
+                 alert('音乐播放失败，请检查音频文件路径是否正确');
+               });
+             }, { once: true });
+           });
+         } else {
+         }
+       });
+     });
+     // 游戏切换逻辑
+     document.querySelectorAll('[data-game]').forEach(gameBtn => {
+       gameBtn.addEventListener('click', () => {
+         // 更新游戏按钮激活状态
+         document.querySelectorAll('[data-game]').forEach(btn => {
+           btn.classList.remove('game-active');
+           btn.classList.add('game-inactive');
+         });
+         gameBtn.classList.add('game-active');
+         gameBtn.classList.remove('game-inactive');
+         // 根据游戏切换分区标签
+         const gameType = gameBtn.getAttribute('data-game');
+         const tabsContainer = document.getElementById('gameTabs');
+         let tabsHTML = '';
+         if (gameType === 'heping' || gameType === 'anqu') {
+           tabsHTML = `
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">微信</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">QQ区</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">护航</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">装备</button>
+           `;
+         } else if (gameType === 'pubg') {
+           tabsHTML = `
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">护航</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">装备</button>
+           `;
+         } else if (gameType === 'sanzhou') {
+           tabsHTML = `
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">手游</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">端游</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">护航</button>
+             <button class="bg-white text-dark rounded-full px-4 py-1.5 text-sm font-medium">装备</button>
+           `;
+         }
+         tabsContainer.innerHTML = tabsHTML;
+       });
+     });
+     // 页面加载完成后，若当前显示抢单中心则自动播放
+     const bgMusic = document.getElementById('bgMusic');
+     document.addEventListener('DOMContentLoaded', () => {
+       if (!document.getElementById('page-1').classList.contains('hidden')) {
+         bgMusic.play().catch(err => {
+           console.log('自动播放失败，等待用户交互:', err);
+           document.addEventListener('click', () => {
+             bgMusic.play().catch(err => {
+               console.log('点击后播放仍失败:', err);
+               alert('音乐播放失败，请检查音频文件路径是否正确');
+             });
+           }, { once: true });
+         });
+       }
+     });
+   </script>
+ </body>
+ </html>
